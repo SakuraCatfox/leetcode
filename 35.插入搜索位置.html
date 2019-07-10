@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 0 */
+      var searchInsert = function(nums, target) {
+        for (let i = 0; i < nums.length; i++) {
+          if (nums.indexOf(target) !== -1) {
+            return nums.indexOf(target)
+          } else {
+            nums.push(target)
+            nums.sort((a, b) => {
+              return a - b
+            })
+            return nums.indexOf(target)
+          }
+        }
+      }
+      /* 1 */
+      var searchInsert = function(nums, target) {
+        for (let i = 0; i < nums.length; i++) {
+          let idx = nums.indexOf(target)
+          if (idx !== -1) {
+            return idx
+          } else {
+            let idx = nums.findIndex(n => n > target)
+            return idx === -1 ? nums.length : idx
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

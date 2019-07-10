@@ -1,0 +1,35 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var judgeCircle = function(moves) {
+        let origin = { x: 0, y: 0 }
+        let arr = moves.split('')
+        arr.forEach(item => {
+          switch (item) {
+            case 'L':
+              origin.x -= 1
+              break
+            case 'R':
+              origin.x += 1
+              break
+            case 'U':
+              origin.y += 1
+              break
+            case 'D':
+              origin.y -= 1
+              break
+          }
+        })
+        // if (origin.x == 0 && origin.y == 0) return true
+        // else return false
+        return origin.x == 0 && origin.y == 0
+      }
+    </script>
+  </body>
+</html>

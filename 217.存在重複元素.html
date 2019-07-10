@@ -1,0 +1,41 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 0 */
+      var containsDuplicate = function(nums) {
+        // 如何判斷空數組
+        if (nums.length <= 1) return false
+        for (let i = 0; i < nums.length; i++) {
+          for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] === nums[j]) return true
+          }
+        }
+        return false
+      }
+      /* 1 */
+      var containsDuplicate = function(nums) {
+        for (let i = 0; i < nums.length; i++) {
+          if (nums.lastIndexOf(nums[i]) !== i) return true
+        }
+        return false
+      }
+      /* 3 */
+      var containsDuplicate = function(nums) {
+        let obj = {}
+        for (let i = 0; i < nums.length; i++) {
+          let num = nums[i]
+          if (obj[num]) return true
+          obj[num] = true
+        }
+        return false
+      }
+      containsDuplicate([3, 3])
+    </script>
+  </body>
+</html>

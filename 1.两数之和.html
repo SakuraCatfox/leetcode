@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 1 */
+      var twoSum = function(nums, target) {
+        for (let i = 0; i < nums.length; i++) {
+          let othernum = target - nums[i]
+          for (let j = i + 1; j < nums.length; j++) {
+            if (nums[j] === othernum) return [i, j]
+          }
+        }
+        return []
+      }
+      /* 2 */
+      var twoSum = function(nums, target) {
+        for (let i = 0; i < nums.length; i++) {
+          //   debugger
+          let othernum = target - nums[i]
+          let otheridx = nums.indexOf(othernum)
+          if (otheridx != -1) {
+            if (otheridx === i) {
+              let newotheridx = nums.lastIndexOf(othernum)
+              if (newotheridx === i) continue
+              else return [i, newotheridx]
+            }
+            return [i, otheridx]
+          }
+        }
+        return []
+      }
+      /* 3 */
+      var twoSum = function(nums, target) {
+        for (let i = 0; i < nums.length; i++) {
+          //   debugger
+          let othernum = target - nums[i]
+          let otheridx = nums.lastIndexOf(othernum)
+          if (otheridx != -1 && otheridx !== i) return [i, otheridx]
+        }
+        return []
+      }
+      twoSum([3, 2, 4], 6)
+    </script>
+  </body>
+</html>

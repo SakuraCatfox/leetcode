@@ -1,0 +1,44 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+/* 
+    I             1
+    V             5
+    X             10
+    L             50
+    C             100
+    D             500
+    M             1000
+    I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。
+    X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 
+    C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
+ */ var romanToInt = function(s) {
+    s= s.replace(/CM/g,'-900-')
+    s= s.replace(/CD/g,'-400-')
+    s= s.replace(/XL/g,'-40-')
+    s= s.replace(/XC/g,'-90-')
+    s= s.replace(/IV/g,'-4-')
+    s= s.replace(/IX/g,'-9-')
+    s= s.replace(/I/g,'-1-')
+    s=s.replace(/V/g,'-5-')
+    s= s.replace(/X/g,'-10-')
+    s= s.replace(/L/g,'-50-')
+    s= s.replace(/C/g,'-100-')
+    s= s.replace(/D/g,'-500-')
+    s= s.replace(/M/g,'-1000-')
+    let newarr=s.split('-')
+    let total = newarr.reduce((sum,item)=>{
+      return sum+Number(item)
+    },0)
+    return total
+}
+      romanToInt('LVIII')
+    </script>
+  </body>
+</html>
